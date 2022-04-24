@@ -1,0 +1,14 @@
+patch:
+  # 默认 ASCII 模式
+  "switches/@0/reset": 1
+  "punctuator/import_preset": symbols
+  # 配置一些特殊符号处理
+  "punctuator/symbols":
+    '/test': ['test']
+  "recognizer/patterns/punct": "^/([A-Z|a-z]*|[0-9]|10)$"
+  # 支持 lua 自定义的翻译器
+  "engine/translators/+":
+     - lua_translator@date_translator
+  # 五笔/拼音反查支持
+  "engine/filters/+":
+     - lua_filter@reverse_lookup_filter
